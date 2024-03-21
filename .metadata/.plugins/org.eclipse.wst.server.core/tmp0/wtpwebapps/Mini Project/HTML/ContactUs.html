@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="CSS/login.css">
+    <link rel="icon" id="favicon" href="../Media/Car_dealer.jpg" >
+</head>
+
+<body>
+    <h1 class="title">Contact Us</h1>
+    <div class="login-div">
+        <div class="logo">
+            <img src="../Media/Car_dealer.jpg" id="companyLogo">
+        </div>
+        <div id="punch">Welcome to BBT Dealership...</div>
+        <div class="email">
+            <input type="email" id="email" name="email" placeholder="Enter your email" onblur="validateEmail()" required>
+        </div>
+        <div id="error1"></div>
+        <div class="pass">
+            <input type="text" id="pass" name="pass" placeholder="Enter Your Query"  required>
+        </div>
+        <div id="error2">
+
+        </div>
+        <input type="button"  value="SEND" id="submit " class="bt1" onclick="validateHome()" >
+        <a href="./index.html" > <button id="submit1 " class="bt2">HOME</button></a>
+
+
+    </div>
+    <script src="JavaScript/ContactUs.js"></script>
+
+</body>
+
+</html>

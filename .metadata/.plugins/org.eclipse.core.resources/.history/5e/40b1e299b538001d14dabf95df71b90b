@@ -1,0 +1,29 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+      <%@ taglib uri="http://java.sun.com/jsp/jstl/sql"  prefix="sql"%>
+      <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>  
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Food</title>
+</head>
+<body>
+<jsp:include page="HeaderFood.jsp"></jsp:include>
+<table>
+<c:forEach items="${fList}" var="food">
+<tr>
+	<td>${food.name}</td>
+	<td>${food.id}</td>
+	<td>${food.price}</td>
+	<td>${food.type}</td>
+	<td><a href="FoodServlet?act=DeleteFood&ids=${food.id}">delete</a></td>
+	<td><a href="AddFood.jsp">Add</a></td>
+	<td><a href="FoodServlet?act=UpdateFood&ids=${food.id}">update</a>
+	<!--<td><a href="CartServlet?act=addtocart&id=${food.id}">Show Cart</a>  -->
+</tr>
+</c:forEach>
+</table>
+</body>
+</html>

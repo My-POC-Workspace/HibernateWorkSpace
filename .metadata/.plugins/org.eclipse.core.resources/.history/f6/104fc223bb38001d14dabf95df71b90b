@@ -1,0 +1,65 @@
+package com.model;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.db.MyConnection;
+import com.pojo.Cart;
+import com.pojo.Food;
+
+public class CartImpl {
+	public static boolean addToCart(Cart cart) {
+		boolean state= false;
+		try(Connection conn = MyConnection.connect()) {
+			
+		String sql = "insert into cart(foodid,username,foodquantity, totalprice) values (?,?,?,?)";
+		PreparedStatement pstmt=conn.prepareStatement(sql);
+		pstmt.setInt(1, cart.getFoodId());
+		pstmt.setString(2, cart.getUsername());
+		pstmt.setInt(3, cart.getFoodQuantity());
+		pstmt.setDouble(4, cart.getTotalPrice());
+		int no = pstmt.executeUpdate();
+		System.out.println(no);
+		if(no>0) {
+			state = true;
+		}
+		
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return state;
+	}
+	
+	public List<Food> showCart(String username) {
+		List<Food> lfood= new ArrayList<>();
+		try(Connection conn = MyConnection.connect()) {
+		String sql = "select * from cart inner join food on cart.foodid= food.foodid where UserName=?";
+		PreparedStatement pstmt=conn.prepareStatement(sql);
+		pstmt.setString(1, username);
+		ResultSet rs = pstmt.executeQuery();
+		while (rs.next()) {
+			Food f = new Food();
+			f.setId(rs.getInt("id"));
+			f.setName(rs.getString("name"));
+			f.setPrice(rs.getDouble("price"));
+			f.setType(rs.getString("Type"));
+			lfood.add(f);
+			
+		}
+		} catch (ClassNotFoundException |SQLException  e) {
+			e.printStackTrace();
+		}
+		return lfood;
+	}
+	
+
+
+}

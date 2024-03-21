@@ -1,0 +1,165 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+@font-face {
+    font-family: 'Edu QLD Beginner';
+    src: url("../font/newFont.ttf");
+}
+body{
+    background-color: #ecf0f3;
+}
+.navbar{
+    display: flex;
+    /* position: fixed; */
+    flex-direction: row;
+    justify-content: space-between;
+    height: 40px;
+    font-family: Edu QLD Beginner;
+    width: 100%;
+    border: 1px solid black;
+    background-color: #333;
+    
+}
+nav li{
+    list-style  : none;
+    color: white;
+    display: inline;
+    width: auto;
+
+}
+li,#companyName{
+    font-size: 24px;
+    margin-top: 4px;
+}
+#home{
+    margin-left: 45px;
+}
+.fa-solid{
+    margin-right: 5px;
+    margin-top: 3px;
+}
+#companyLogo{
+    height: 40px;  
+    position: fixed;
+}
+#companyName{
+    position: relative;
+    margin: 8px;
+    font-weight: bolder;
+    color: white;
+}
+.login{
+    margin-right: 45px;
+}
+
+.fa-star{
+    color: orange;
+}
+
+.right{
+    border-right: 2px solid black;
+}
+.left{
+    border-left: 2px solid black;
+}
+
+.div1:hover{
+    background-color: #aecbe2;
+}
+
+.btn-1,.book{
+    height: 35px;
+    width: 100px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: rgb(226, 195, 55);
+    transition: 0.5s;
+}
+
+.btn-1:hover,.book:hover{
+    background-color: rgb(255, 208, 0);
+}
+
+#contact{
+    text-decoration: none;
+    color: white;
+}
+
+.relation{
+    color: white;
+    text-decoration: none;
+}
+.div1{
+    height: 300px;
+    width: 100%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    transition: 1s;
+}
+.div1 #gwagon{
+    height: 100%;
+    width: 40%;
+
+}
+.content{
+    color: black;
+    font-size: 30px;
+    margin: auto;
+}
+
+
+#logoDesign{
+    text-decoration: none;
+    color: white;
+}
+
+.footer{
+	background: #333;
+}
+
+.footer .box-container{
+	display: flex;
+	flex-wrap: wrap;
+	grid-gap: 1.5rem;
+}
+
+.footer .box-container .box{
+	padding: 1rem 0;
+	flex: 1 1 25rem;
+    /* margin-left: 40px; */
+}
+.quick{
+    margin-left: 30px;
+}
+
+#quickLink{
+    margin-left: 35px;
+}
+
+.footer .box-container .box h3{
+	font-size: 2.5rem;
+	padding: .7rem 0;
+	color: #fff;
+}
+
+.footer .box-container .box p{
+	font-size: 1.5rem;
+	padding: .7rem 0;
+	color: #ddd;
+}
+
+.footer .box-container .box a{
+	display: block;
+	font-size: 1.5rem;
+	padding: .7rem 0;
+	color: #eee;
+}
+
+.footer .box-container .box a:hover{
+	color:var(--orange);
+}

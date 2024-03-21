@@ -1,0 +1,102 @@
+*{
+    box-sizing: border-box;
+}
+body{
+     height: 100vh;
+     width: 100vw;
+     /* overflow: hidden; */
+     font-family: Arial, Helvetica, sans-serif;
+     font-weight: 700;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     color: #555;
+     background-color: #ecf0f3;  
+}
+.login-div{
+    position: fixed;
+    width: 370px;
+    height: 500px;
+    padding: 60px 35px 35px 35px;
+    border-radius: 40px;
+    background-color: #ecf0f3;
+    box-shadow: 13px 13px 20px #cbced1,
+    -13px -13px 20px #fff;
+}
+#companyLogoforR{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+}
+.logo{
+    position: relative;
+    top: -10%;
+    left: 33%;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    margin: 0 ;
+    box-shadow: 0px 0px 2px #5f5f5f,
+    0px 0px 0px 5px #ecf0f3,
+    8px 8px 15px #a7aaaf,
+    -8px -8px 15px #fff;
+}
+.title{
+    position: fixed;
+    top: -5%;
+    font-size: 60px;
+}
+#punch{
+    position: relative;
+    text-align: center;
+    top: -5%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+}
+#email,#pass,#pass1,#cpass{
+    height: 32px;
+    width: 90%;
+    margin-left: 5%;
+    border-radius: 6px;
+    border: none;
+    box-shadow: 8px 8px 8px #cbced1,
+    -8px -8px 8px #fff;
+}
+#email,#pass,#pass1,#cpass::placeholder{
+    text-align: center;
+}
+#cpass{
+    text-align: center;
+}
+.email{
+    margin-top: 5%;
+}
+.pass{
+    margin-top: 5%;
+}
+#submit{
+    margin: 15% 35% 15% 30%;  /* top,left,bottom,right*/ 
+    height: 10%;
+    width: 40%;  
+    background-color: rgb(144, 133, 212);
+    transition: 0.5s;
+    font-weight: bolder;
+    border-radius: 7px;
+}
+#submit:hover{
+    background-color: rgb(105, 88, 218);
+}
+.log-register{
+    position: relative;
+    bottom: 10%;
+    left: 10%;
+}
+
+#loginHo:hover{
+    color: blue
+}
+
+#err1,#err2,#err3,#err4{
+    text-align: center;
+    margin-top: 2px;
+}

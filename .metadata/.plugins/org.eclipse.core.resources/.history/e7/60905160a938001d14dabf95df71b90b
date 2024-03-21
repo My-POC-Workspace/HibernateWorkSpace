@@ -1,0 +1,44 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="CSS/Login.css">
+</head>
+<body>
+<form action = "UserServlet" method = "post">
+		<h1 class="title">LOGIN</h1>
+		<label>USER</label>
+		<div class="login-div">
+			<div class="logo">
+<!-- 				<img src="Media/Car_dealer.jpg" id="companyLogo"> -->
+			</div>
+			<div id="punch">Welcome to Kabab FoodService...</div>
+			<div class="email">
+				<input type="text" id="username" name="username"
+					placeholder="Enter your username" onblur="validateEmail()" required>
+			</div>
+			<div id="error1"></div>
+			<div class="pass">
+				<input type="password" id="pass" name="pass"
+					placeholder="Enter your password" onblur="validatePass()" required>
+			</div>
+			<div id="error2"></div>
+			
+			<input type="Submit" value="LOGIN" id="submit"
+				onclick="validateHome()">
+			<a href="./ChangePassword.jsp" id="changePass" name = "changePass">Forget Password</a>
+				
+			<h4 class="log-register">
+				Don't have an account? <span> <a href="./Register.jsp">Register
+						here</a></span>
+			</h4>
+			<input type = "hidden" name = "act" value = "Login">
+	</div>
+	</form>
+
+<!-- 	<script src="JavaScript/Login.js"></script> -->
+</body>
+</html>

@@ -1,0 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action = "UserServlet" method = "post">
+	 <label>Enter Username: </label>
+	<input type = "text" id = "user" name = "userName" value = "${user.userName}" readonly>
+	<label>Enter new Name : </label>
+	<input type = "text" name = "newName" value = "${user.name}">
+	<label>Enter Email : </label>
+	<input type = "text"  name = "newEmail" value = "${user.email}">
+	<label>Enter  Contact No : </label>
+	<input type = "text"  name = "newContact" value = "${user.contactNo}">
+	<label>Enter  Address : </label>
+	<input type = "text"  name = "newAdd" value = "${user.address}">
+	<input type = submit >
+
+
+	<input type = "hidden" name = "act" value = "UpdateUser">
+</form>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register</title>
+<!--     <link rel="stylesheet" href="./CSS/Register.css"> -->
+<link rel="icon" id="favicon" href="./Media/Car_dealer.jpg">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+	<form action="UserServlet" method="post">
+		<h1 class="title">Register here...</h1>
+		<label>USER</label>
+		 <input type="radio" checked="checked" name="radio" id="user"> 
+		 <span> <label>ADMIN</label> 
+		 <input type="radio" checked="checked" name="radio" id="admin">
+		</span>
+		<div class="login-div">
+			<div class="logo">
+				<!--             <img src="./Media/Car_dealer.jpg" id="companyLogoforR"> -->
+			</div>
+			<div id="punch">Welcome to BBT Dealership...</div>
+			<div class="email">
+				<input type="text" id="email" name="username"
+					placeholder="Enter your Username" onblur="validateUser()">
+			</div>
+			<div id="err1"></div>
+			<div class="pass">
+				<input type="email" id="pass" name="email"
+					placeholder="Enter your Email" onblur="validateEmail()">
+			</div>
+			<div id="err2"></div>
+			<div class="email">
+				<input type="password" id="pass1" name="pass"
+					placeholder="Enter your password" onblur="validatePass()">
+			</div>
+			<div id="err3"></div>
+			<div class="pass">
+				<input type="password" id="cpass" name="cpass"
+					placeholder="Confirm your password" onblur="validateCPass()">
+			</div>
+			<div id="err4"></div>
+
+
+			<input type="submit" value="REGISTER" id="submit"
+				onclick="validateLogin()">
+			<!-- <input type="submit" value="REGISTER"> -->
+			<h4 class="log-register">
+				Already have an account? <span> <a href="./Login.html"
+					id="loginHo">Login</a></span>
+			</h4>
+
+		</div>
+		<input type="hidden" name="act" value="registration">
+	</form>
+
+	<script src="./Scripts/Register.js"></script>
+
+</body>
+
+</html>

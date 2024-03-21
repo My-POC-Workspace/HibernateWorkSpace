@@ -1,0 +1,131 @@
+package com.servlets;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.model.UserImpl;
+import com.mysql.cj.Session;
+import com.pojo.Food;
+import com.pojo.User;
+
+@WebServlet("/UserServlet")
+public class UserServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		UserImpl impl=new UserImpl();
+		String userAction=request.getParameter("act");
+		HttpSession session = request.getSession();
+		
+		if (userAction.equalsIgnoreCase("getall")) {
+			List<User> userList = impl.getAllUser(); 
+			session.setAttribute("uList", userList);
+			response.sendRedirect("index.jsp"); 
+		} 
+		else if (userAction.equalsIgnoreCase("UpdateUser")) {
+
+			String username = request.getParameter("users");
+			System.out.println(username);
+			User uname = impl.getUserByUsername(username);
+			session.setAttribute("uname", uname);
+			response.sendRedirect("Update.jsp");	
+	}
+		else if (userAction.equalsIgnoreCase("DeleteUser")) {
+			System.out.println("in delete...");
+			String username = request.getParameter("users");
+			System.out.println("Name is : "+ username);
+			boolean b = impl.DeleteUser(username);
+			if (b)
+				response.sendRedirect("Register.jsp");
+			else
+				response.sendRedirect("Error.jsp");
+		}
+	}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String userAction = request.getParameter("act");
+		UserImpl impl=new UserImpl();
+		boolean b = false;
+		
+		if(userAction.equalsIgnoreCase("registration")) {
+		String uname=request.getParameter("username");	
+		String name = request.getParameter("name");
+		String emailId=request.getParameter("email");
+		long contactNo = Long.parseLong(request.getParameter("userContact"));
+		String address=request.getParameter("userAddress");
+		String pass=request.getParameter("pass");
+
+		
+		User user=new User();
+		user.setUserName(uname);
+		user.setName(name);
+		user.setEmail(emailId);
+		user.setContactNo(contactNo);
+		user.setAddress(address);
+		user.setPass(pass);
+		
+		System.out.println(user);
+		b=impl.register(user);
+		System.out.println(b);
+		if(b)
+			response.sendRedirect("./Login.jsp?message=success");
+		else
+			response.sendRedirect("./Register.jsp?message=fail");
+		
+	}
+		else if(userAction.equalsIgnoreCase("Login")) {
+			HttpSession session = request.getSession();
+			String userName = request.getParameter("username");
+			String passString = request.getParameter("pass");
+			System.out.println(userName);
+			System.out.println(passString);
+			User user = impl.getUserByUsername(userName);
+			System.out.println(user);
+			session.setAttribute("user",user );
+			
+			if(userName.equals("admin") && passString.equals("admin"))
+				impl.Login(userName, passString);
+				response.sendRedirect("foodList.jsp");
+			String name = impl.Login(userName, passString);
+			System.out.println(name);
+			HttpSession session = request.getSession();
+			
+			
+			if(name != null) {			
+				response.sendRedirect("index.jsp");
+			}
+			else {
+				response.sendRedirect("Login.jsp");
+			}
+			}
+		else if(userAction.equalsIgnoreCase("UpdateUser")) {
+			System.out.println("in Update...");
+				String name = request.getParameter("userName");
+				String newName = request.getParameter("newName");
+				String newEmail = request.getParameter("newEmail");
+				long newContact = Long.parseLong(request.getParameter("newContact")); 
+				String newAddress = request.getParameter("newAdd");
+				User user = new User(name, newName, newEmail, newContact, newAddress);
+				b = impl.Update(user);
+				System.out.println(user);
+			if(b) {
+				response.sendRedirect("index.jsp");
+			}
+			else {
+				response.sendRedirect("Error.jsp");
+			}
+		}
+			
+	}
+}
+
